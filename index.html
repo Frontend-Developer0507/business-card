@@ -9,7 +9,10 @@
 <link rel="stylesheet" href="./fontawesome/css/all.min.css">
 </head>
 <body>
-<button class="toggle"></button>
+  <button class="toggls">
+    <i class="fa-solid fa-moon toggle-moon"></i>
+    <i class="fa-solid fa-sun toggle-sun"></i>
+  </button>
 <div class="contener">
 <div class="card">
 <div class="contents"> 
@@ -39,23 +42,28 @@
 </div>
 </div>
 
-<script type="text/javascript" src="./js/vanilla-tilt.js"></script>
 <script>
 let body = document.querySelector('body');
-let toggle = document.querySelector('.toggle');
+let toggls = document.querySelector('.toggls');
 
-toggle.addEventListener("click", function(){
+let moon = document.querySelector('.toggle-moon');
+let sun = document.querySelector('.toggle-sun');
 
-body.classList.toggle('dark');
+toggls.addEventListener("click",function(){
+  toggls.classList.toggle('active');
+  body.classList.toggle('dark')
 });
 
-VanillaTilt.init(document.querySelector(".card"), {
-max: 15,
-speed: 100,
-glare:  true,
-"max-glare": .2,
-});
 </script>
 
+<script src="./js/vanilla-tilt.min.js"></script>
+<script>
+  VanillaTilt.init(document.querySelector(".card"), {
+		max: 15,
+		speed: 200,
+    glare: true,
+    "max-glare": 0.5,   
+	});
+</script>
 </body>
 </html>

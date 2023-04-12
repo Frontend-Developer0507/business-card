@@ -11,12 +11,12 @@ align-items: center;
 justify-content: center;
 
 font-family: 'Poppins',sans-serif;
-}
 
+transition: all .3s ease-in;
+}
 .dark {
-background-color: #161623;
+  background-color: #161623;
 }
-
 body::after {
 content: "";
 position: absolute;
@@ -49,42 +49,72 @@ body.dark::before {
 background: linear-gradient(#2196f3,#31ff38);
 }
 
-.toggle {
-position: absolute;
-top: 20px;
-right: 20px;
+.toggls {
+  overflow: hidden;
+  position: absolute;
+  right: 20px;
+  top: 20px;
 
-width: 30px;
-height: 30px;
+  width: 60px;
+  height: 30px;
 
-background-color: #161623;
-border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+  background-color: #333;
+  border-radius: 20px;
+  z-index: 2;
 }
 
-.dark .toggle {
-background-color: #FFF;
+.toggls::after {
+  content: "";
+  position: absolute;
+  left: 30px;
+
+
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  background-color: #000;
+  z-index: -1;
+  
+  transition: left .3s ease-in;
 }
 
-.toggle::after {
-position: absolute;
-content: "\f186";
-top: 50%;
-left: 50%;
-transform: translate(-50%,-50%);
-
-font-size: 18px;
-color: #FFF;
-font-family: fontAwesome;
+.toggls.active::after {
+  left: 0;
 }
 
-.dark .toggle::after {
-content: "\f185"; 
+.toggls .toggle-sun {
+  color: #ffc107;
 }
 
-.dark .toggle::after {
-color: #161623;
-font-size: 20px;
-font-weight: 500;
+.toggls.active .toggle-moon {
+  color: #FFF;
+}
+
+.toggls .toggle-sun {
+  position: relative;
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toggls i {
+  color: #FFF;
+}
+.toggls .toggle-moon {
+  width: 30px;
+  height: 30px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contener { 
@@ -95,6 +125,7 @@ justify-content: center;
 align-items: center;
 margin: 40px 0;
 }
+
 .contener .card {
 position: relative;
 width: 300px;
